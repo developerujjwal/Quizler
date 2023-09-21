@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'constant.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 void main() {
   runApp(MyApp());
@@ -48,8 +49,8 @@ class _MyAppState extends State<MyApp> {
                           icn.add(Icon(Icons.close,color: Colors.red,),);
 
                         }
-                        if(quz==2){
-                          quz=0;
+                        if(quz>=ans.length-1){
+                          Alert(context: context, title: "finish", desc: "wait for result",type: AlertType.success).show();
                         }
                         else {
                           quz++;
@@ -73,13 +74,13 @@ class _MyAppState extends State<MyApp> {
                     onPressed: () {
                       setState(() {
                         if (ans[quz]==false){
-                          icn.add(Icon(Icons.close,color: Colors.red,),);
-                        }
-                        else {
                           icn.add(Icon(Icons.check,color: Colors.green,),);
                         }
-                        if(quz==2){
-                          quz=0;
+                        else {
+                          icn.add(Icon(Icons.close,color: Colors.red,),);
+                        }
+                        if(quz>=ans.length-1){
+                          Alert(context: context, title: "finish", desc: "wait for result",type: AlertType.success).show();
                         }
                         else {
                           quz++;
@@ -105,4 +106,3 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
-// gayugs
